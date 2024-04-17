@@ -1,40 +1,38 @@
 ﻿using System;
 using System.Globalization;
 using C_sharp_classes_attributes_methods_static_members;
+
 namespace Course
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Triangulo x, y;
+            Produto p = new Produto();
 
-            x = new Triangulo();
-            y = new Triangulo();
+            System.Console.WriteLine("Entre os dados do produto:");
 
-            Console.WriteLine("Entre com as medidas do triângulo X:");
-            x.A = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            x.B = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            x.C = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            System.Console.Write("Nome: ");
+            p.Nome = Console.ReadLine();
 
-            Console.WriteLine("Entre com as medidas do triângulo Y:");
-            y.A = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            y.B = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            y.C = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            System.Console.Write("Preço: ");
+            p.Preco = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
-            double areaX = x.Area();
-            double areaY = y.Area();
 
-            Console.WriteLine("Área de X = " + areaX.ToString("F4", CultureInfo.InvariantCulture));
-            Console.WriteLine("Área de Y = " + areaY.ToString("F4", CultureInfo.InvariantCulture));
-            if (areaX > areaY)
-            {
-                Console.WriteLine("Maior área: X");
-            }
-            else
-            {
-                Console.WriteLine("Maior área: Y");
-            }
+            System.Console.Write("Quantidade: ");
+            p.Quantidade = int.Parse(Console.ReadLine());
+
+            p.Mostrar();
+
+            System.Console.WriteLine("Digite o número de produtos a ser adicionado ao estoque: ");
+            int numero = int.Parse(Console.ReadLine());
+            p.Adicionar(numero);
+            p.Mostrar();
+
+            System.Console.WriteLine("Digite o número de produtos a ser removido do estoque: ");
+            numero = int.Parse(Console.ReadLine());
+            p.Remover(numero);
+            p.Mostrar();
         }
     }
 }
