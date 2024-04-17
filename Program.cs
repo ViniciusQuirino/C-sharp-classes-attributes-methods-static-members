@@ -6,33 +6,17 @@ namespace Course
 {
     class Program
     {
+        static double Pi = 3.14;
         static void Main(string[] args)
-        {
-            Produto p = new Produto();
-
-            System.Console.WriteLine("Entre os dados do produto:");
-
-            System.Console.Write("Nome: ");
-            p.Nome = Console.ReadLine();
-
-            System.Console.Write("Preço: ");
-            p.Preco = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-
-
-            System.Console.Write("Quantidade: ");
-            p.Quantidade = int.Parse(Console.ReadLine());
-
-            p.Mostrar();
-
-            System.Console.WriteLine("Digite o número de produtos a ser adicionado ao estoque: ");
-            int numero = int.Parse(Console.ReadLine());
-            p.Adicionar(numero);
-            p.Mostrar();
-
-            System.Console.WriteLine("Digite o número de produtos a ser removido do estoque: ");
-            numero = int.Parse(Console.ReadLine());
-            p.Remover(numero);
-            p.Mostrar();
+        {  
+            Console.Write("Entre o valor do raio: ");
+            double raio = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            double circ = Calculadora.Circunferencia(raio);
+            double volume = Calculadora.Volume(raio);
+            Console.WriteLine("Circunferência: " + circ.ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("Volume: " + volume.ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("Valor de PI: " + Calculadora.Pi.ToString("F2", CultureInfo.InvariantCulture));
         }
+
     }
 }
